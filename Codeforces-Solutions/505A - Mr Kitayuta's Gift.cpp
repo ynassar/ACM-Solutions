@@ -1,3 +1,8 @@
+/*
+	Solution Explanation:
+		Try inserting all characters from a-z at every position in the string until it becomes a palindrome.
+		If and when it becomes a palindrome, print it an exit the program. If it does not become a palindrome, print NA.
+*/
 #include <string>
 #include <iostream>
 #include <fstream>
