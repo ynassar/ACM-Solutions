@@ -30,4 +30,4 @@ int main()
 			cout << q[i] << " \n"[i == n - 1];
 	}
 }
-close
+
