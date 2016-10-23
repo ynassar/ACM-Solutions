@@ -48,4 +48,4 @@ int main() {
 	printSolution(0);
 	return 0;
 }
-close
+
