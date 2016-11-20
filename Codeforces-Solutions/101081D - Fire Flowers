@@ -1,0 +1,23 @@
+#include <iostream>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+	//freopen("Text.txt", "r", stdin);
+	int t; 
+	scanf("%d", &t);
+	while (t--)
+	{
+		int r1, x1, y1, r2, x2, y2; scanf("%d %d %d %d %d %d", &r1, &x1, &y1, &r2, &x2, &y2);
+		int distSquared = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+		double dist = sqrt(distSquared);
+		
+		if(dist+r2<=r1&&r1>=r2)
+			printf("Rich\n");
+		else
+			printf("Dead\n");
+	}
+	return 0;
+}
