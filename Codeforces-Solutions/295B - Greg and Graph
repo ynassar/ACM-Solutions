@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long ans[505];
+int x[505];
+int adj[505][505];
+long long dist[505][505];
+bool deleted[505];
+int main(){
+	int n; scanf("%d", &n);
+	for (int i = 0; i < n; i ++){
+		for (int j = 0; j < n; j ++){
+			scanf("%d", &adj[i][j]);
+			dist[i][j] = adj[i][j];
+		}
+	}
+	
+	for (int i = 0; i < n; i ++){
+		scanf("%d", x + i);
+		x[i] --;
+	}
+	
+	for (int i = 0; i < n; i ++){
+		deleted[i] = true;
+	}
+	
+	for (int k = n - 1; k >= 0; k --){
+		int w = x[k];
+		deleted[w] = false;
+		for (int u = 0; u < n; u ++){
+			for (int v = 0; v < n; v ++){
+				if(dist[u][w] + dist[w][v] < dist[u][v]){
+					dist[u][v] = dist[u][w] + dist[w][v];
+				}
+			}
+		}
+		ans[k] = 0LL;
+		for (int i = 0; i < n; i ++){
+			if(deleted[i]) continue;
+			for (int j = 0; j < n; j ++){
+				if(deleted[j]) continue;
+				ans[k] += dist[i][j];
+			}
+		}
+	}
+
+	for (int i = 0; i < n ; i ++)
+		cout << ans[i] << " ";
+	}
+	
+	return 0;
+}
